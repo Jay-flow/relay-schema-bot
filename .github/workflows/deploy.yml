@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: deploy
     env:
-      APP_PRIVATE_KEY: $ {{ secrets.APP_PRIVATE_KEY }}
+      APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
     steps:
       - id: step1
         run: echo ${{ env.APP_PRIVATE_KEY }}
