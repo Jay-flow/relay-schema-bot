@@ -25,10 +25,3 @@ inputs:
   app-private-key:
     description: Github relay-schema-bot private key
     required: true
-# secrets:
-#   APP_ID:
-#     description: Github relay-schema-bot app id
-#     required: true
-#   APP_PRIVATE_KEY:
-#     description: Github relay-schema-bot private key
-#     required: true
