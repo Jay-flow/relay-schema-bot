@@ -43,6 +43,8 @@ jobs:
     steps:
       - id: step1
         run: echo ${{ env.APP_PRIVATE_KEY }}
+      - id: step1
+        run: echo ${{ secrets.token }}
       - uses: Jay-flow/relay-schema-bot@master
         with:
           token: ${{ secrets.token }}
