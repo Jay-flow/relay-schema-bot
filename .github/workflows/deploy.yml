@@ -1,0 +1,51 @@
+# Workflow name
+name: Relay Schema bot
+
+on:
+  workflow_call:
+    inputs:
+      # token:
+      #   description: 'Github Personal Access Token (PAT)'
+      #   required: true
+      #   type: string
+      repo-url:
+        description: 'Github repository URL'
+        required: true
+        type: string
+      title:
+        description: Title of the pull request
+        default: 'Generate relay schema files'
+        type: string
+      description:
+        description: description of the pull request
+        type: string
+      base:
+        description: The pull request base branch.
+        default: 'master'
+        type: string
+    secrets:
+      # APP_ID:
+      #   description: Github relay-schema-bot app id
+      #   required: false
+      # APP_PRIVATE_KEY:
+      #   description: Github relay-schema-bot private key
+      #   required: false
+      token:
+        description: 'Github Personal Access Token (PAT)'
+        required: true
+
+jobs:
+  reusable_workflow_job:
+    runs-on: ubuntu-latest
+    environment: deploy
+    steps:
+      - id: step1
+        run: echo ${{ github.token }}
+      - id: step2
+        run: echo "Hello world"
+      - uses: Jay-flow/relay-schema-bot@master
+        with:
+          token: ${{ secrets.token }}
+          repo-url: ${{ inputs.repo-url }}
+          app-id: 156163
+          app-private-key: ${{ github.token }}
