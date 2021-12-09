@@ -24,30 +24,44 @@ on:
         default: 'master'
         type: string
     secrets:
-      # APP_ID:
-      #   description: Github relay-schema-bot app id
-      #   required: false
-      # APP_PRIVATE_KEY:
-      #   description: Github relay-schema-bot private key
-      #   required: false
+      APP_ID:
+        description: Github relay-schema-bot app id
+        required: false
+      APP_PRIVATE_KEY:
+        description: Github relay-schema-bot private key
+        required: false
       token:
         description: 'Github Personal Access Token (PAT)'
         required: true
 
 jobs:
-  reusable_workflow_job:
+  build:
+    build:
     runs-on: ubuntu-latest
     environment: deploy
-    env:
-      APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
     steps:
-      - id: step1
-        run: echo ${{ env.APP_PRIVATE_KEY }}
-      - id: step1
-        run: echo ${{ secrets.token }}
-      - uses: Jay-flow/relay-schema-bot@master
+      - name: Run Relay schema bot
+        id: registry-quay
+        uses: Jay-flow/relay-schema-bot@master
         with:
-          token: ${{ secrets.token }}
           repo-url: ${{ inputs.repo-url }}
-          app-id: 156163
-          app-private-key: ${{ github.token }}
+          token: ${{ secrets.PAT }}
+          app-id: ${{ secrets.QUAY_USERNAME }}
+          app-private-key: ${{ secrets.QUAY_PASSWORD }}
+
+  # reusable_workflow_job:
+  #   runs-on: ubuntu-latest
+  #   environment: deploy
+  #   env:
+  #     APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+  #   steps:
+  #     - id: step1
+  #       run: echo ${{ env.APP_PRIVATE_KEY }}
+  #     - id: step1
+  #       run: echo ${{ secrets.token }}
+  #     - uses: Jay-flow/relay-schema-bot@master
+  #       with:
+  #         token: ${{ secrets.token }}
+  #         repo-url: ${{ inputs.repo-url }}
+  #         app-id: 156163
+  #         app-private-key: ${{ github.token }}
