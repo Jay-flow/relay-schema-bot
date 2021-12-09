@@ -2,7 +2,7 @@ name: Relay Schema bot
 
 on: [push]
 jobs:
-  call-workflow-passing-data:
+  Relay schema bot:
     uses: Jay-flow/relay-schema-bot@master
     with:
       token: ${{ secrets.PAT }}
