@@ -44,7 +44,7 @@ jobs:
         uses: Jay-flow/relay-schema-bot@master
         with:
           repo-url: ${{ inputs.repo-url }}
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.token }}
           app-id: ${{ secrets.APP_ID }}
           app-private-key: ${{ secrets.APP_PRIVATE_KEY }}
 
