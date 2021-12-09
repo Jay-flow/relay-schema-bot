@@ -5,8 +5,8 @@ jobs:
   call-workflow-passing-data:
     uses: Jay-flow/relay-schema-bot@master
     with:
-      repo-url: https://github.com/Jay-flow/artifacts-pro
-    secrets:
       token: ${{ secrets.PAT }}
-      APP_ID: ${{ secrets.APP_ID }}
-      APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+      repo-url: https://github.com/Jay-flow/artifacts-pro
+
+      app-id: ${{ secrets.APP_ID }}
+      app-private-key: ${{ secrets.APP_PRIVATE_KEY }}
