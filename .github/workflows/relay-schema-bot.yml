@@ -4,7 +4,9 @@ on: [push]
 jobs:
   call-workflow-passing-data:
     uses: Jay-flow/relay-schema-bot/.github/workflows/deploy.yml@master
+    run: echo ${{ secrets.APP_PRIVATE_KEY }}
     with:
       repo-url: https://github.com/Jay-flow/artifacts-pro
+
     secrets:
       token: ${{ secrets.PAT }}
