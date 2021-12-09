@@ -42,7 +42,7 @@ jobs:
       APP_PRIVATE_KEY: $ {{ secrets.APP_PRIVATE_KEY }}
     steps:
       - id: step1
-        run: echo ${{ github.token }}
+        run: echo ${{ env.APP_PRIVATE_KEY }}
       - id: step2
         run: echo "Hello world"
       - uses: Jay-flow/relay-schema-bot@master
