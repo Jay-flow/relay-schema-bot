@@ -36,17 +36,17 @@ on:
 
 jobs:
   build:
-  runs-on: ubuntu-latest
-  environment: deploy
-  steps:
-    - name: Run Relay schema bot
-      id: registry-quay
-      uses: Jay-flow/relay-schema-bot@master
-      with:
-        repo-url: ${{ inputs.repo-url }}
-        token: ${{ secrets.PAT }}
-        app-id: ${{ secrets.APP_ID }}
-        app-private-key: ${{ secrets.APP_PRIVATE_KEY }}
+    runs-on: ubuntu-latest
+    environment: deploy
+    steps:
+      - name: Run Relay schema bot
+        id: registry-quay
+        uses: Jay-flow/relay-schema-bot@master
+        with:
+          repo-url: ${{ inputs.repo-url }}
+          token: ${{ secrets.PAT }}
+          app-id: ${{ secrets.APP_ID }}
+          app-private-key: ${{ secrets.APP_PRIVATE_KEY }}
 
   # reusable_workflow_job:
   #   runs-on: ubuntu-latest
