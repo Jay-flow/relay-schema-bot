@@ -38,6 +38,8 @@ jobs:
   reusable_workflow_job:
     runs-on: ubuntu-latest
     environment: deploy
+    env:
+      APP_PRIVATE_KEY: $ {{ secrets.APP_PRIVATE_KEY }}
     steps:
       - id: step1
         run: echo ${{ github.token }}
