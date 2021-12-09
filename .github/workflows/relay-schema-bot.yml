@@ -8,5 +8,5 @@ jobs:
       repo-url: https://github.com/Jay-flow/artifacts-pro
     secrets:
       token: ${{ secrets.PAT }}
-      APP_ID: ${{ secrets.APP_ID }}
-      APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+      # APP_ID: ${{ secrets.APP_ID }}
+      # APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
